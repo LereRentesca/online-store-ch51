@@ -1,18 +1,22 @@
 import QuantityPicker from "./quantityPicker";
 import './styles/product.css';
 
-function Product(){
+function Product(props){
     function add(){
         console.log("adding to cart");
     }
 
     return(
         <div className="product">
-            <img src="https://picsum.photos/250/200" alt=""/>
-            <h3>I'm a product</h3>
-
-            <label>$total</label>
-            <label>$price</label>
+            <img src={"./img/"+props.data.image} alt="" />
+            {/* <img src="https://media.post.rvohealth.io/wp-content/uploads/2020/09/AN313-Tomatoes-732x549-Thumb.jpg" alt="" /> */}
+            <h3>{props.data.title}</h3>
+            <span>{"ID: " + props.data._id}</span>
+            <br/> 
+            <div className="product-price">
+                <label>$total</label>
+                <label>${props.data.price}</label>
+            </div>
 
             <QuantityPicker></QuantityPicker>
 
